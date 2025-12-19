@@ -23,6 +23,11 @@ class TransportCompany:
         return self.vehicles
 
     def optimize_cargo_distribution(self):
+
+        for v in self.vehicles:
+            v.current_load = 0.0
+            v.clients_list = []
+
         sorted_clients = sorted(self.clients, key=lambda c: c.is_vip, reverse=True)
         remaining = []
 
